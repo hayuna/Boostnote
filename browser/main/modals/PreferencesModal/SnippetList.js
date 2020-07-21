@@ -22,7 +22,7 @@ const SnippetList = ({ onSnippetSelect, currentSnippet, onSnippetDeleted }) => {
     })
   }
 
-  const handleSnippetContextMenu = (snippet) => {
+  const handleSnippetContextMenu = snippet => {
     context.popup([
       {
         label: i18n.__('Delete snippet'),
@@ -31,7 +31,7 @@ const SnippetList = ({ onSnippetSelect, currentSnippet, onSnippetDeleted }) => {
     ])
   }
 
-  const deleteSnippet = (snippet) => {
+  const deleteSnippet = snippet => {
     dataApi
       .deleteSnippet(snippet)
       .then(() => {
@@ -43,7 +43,7 @@ const SnippetList = ({ onSnippetSelect, currentSnippet, onSnippetDeleted }) => {
       })
   }
 
-  const handleSnippetClick = (snippet) => {
+  const handleSnippetClick = snippet => {
     onSnippetSelect(snippet)
   }
 
@@ -61,7 +61,7 @@ const SnippetList = ({ onSnippetSelect, currentSnippet, onSnippetDeleted }) => {
       })
   }
 
-  const defineSnippetStyleName = (snippet) => {
+  const defineSnippetStyleName = snippet => {
     if (!currentSnippet) {
       return 'snippet-item'
     }
@@ -77,10 +77,7 @@ const SnippetList = ({ onSnippetSelect, currentSnippet, onSnippetDeleted }) => {
     <div styleName='snippet-list'>
       <div styleName='group-section'>
         <div styleName='group-section-control'>
-          <button
-            styleName='group-control-button'
-            onClick={createSnippet}
-          >
+          <button styleName='group-control-button' onClick={createSnippet}>
             <i className='fa fa-plus' /> {i18n.__('New Snippet')}
           </button>
         </div>
